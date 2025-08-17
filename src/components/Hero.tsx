@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
+import { SplitText, ScrambleText } from '@/components/EnhancedText';
+import ScrollReveal from '@/components/ScrollReveal';
 
 const Hero = () => {
-  const [text, setText] = useState('');
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const fullText = "Computer Science Student | Full-Stack & DevOps Enthusiast";
+  const [showTitle, setShowTitle] = useState(false);
+  const [showSubtitle, setShowSubtitle] = useState(false);
 
   useEffect(() => {
-    if (currentIndex < fullText.length) {
-      const timeout = setTimeout(() => {
-        setText(prev => prev + fullText[currentIndex]);
-        setCurrentIndex(prev => prev + 1);
-      }, 50);
-      return () => clearTimeout(timeout);
-    }
-  }, [currentIndex, fullText]);
+    const titleTimer = setTimeout(() => setShowTitle(true), 500);
+    const subtitleTimer = setTimeout(() => setShowSubtitle(true), 1500);
+    
+    return () => {
+      clearTimeout(titleTimer);
+      clearTimeout(subtitleTimer);
+    };
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
@@ -27,72 +28,100 @@ const Hero = () => {
       
       <div className="container-custom text-center">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in-up">
-            <span className="text-gradient">Emergent</span>
-          </h1>
+          <ScrollReveal direction="up" delay={300}>
+            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+              {showTitle && (
+                <SplitText 
+                  text="Emergent" 
+                  className="text-gradient"
+                  stagger={100}
+                />
+              )}
+            </h1>
+          </ScrollReveal>
           
-          <div className="h-16 mb-8 flex items-center justify-center">
-            <h2 className="text-xl md:text-2xl text-muted-foreground font-medium">
-              {text}
-              <span className="typewriter"></span>
-            </h2>
-          </div>
+          <ScrollReveal direction="up" delay={600}>
+            <div className="h-16 mb-8 flex items-center justify-center">
+              <h2 className="text-xl md:text-2xl text-muted-foreground font-medium">
+                {showSubtitle && (
+                  <ScrambleText 
+                    text="Computer Science Student | Full-Stack & DevOps Enthusiast"
+                    scrambleSpeed={30}
+                    revealSpeed={80}
+                  />
+                )}
+              </h2>
+            </div>
+          </ScrollReveal>
           
-          <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto animate-fade-in-up [animation-delay:0.5s] opacity-0 [animation-fill-mode:forwards]">
-            Passionate about building innovative solutions that bridge technology and user experience. 
-            Currently exploring the intersection of Full-Stack Development, DevOps practices, and AI integration.
-          </p>
+          <ScrollReveal direction="up" delay={900}>
+            <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
+              Passionate about building innovative solutions that bridge technology and user experience. 
+              Currently exploring the intersection of Full-Stack Development, DevOps practices, and AI integration.
+            </p>
+          </ScrollReveal>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-in-up [animation-delay:1s] opacity-0 [animation-fill-mode:forwards]">
-            <Button 
-              size="lg" 
-              className="hero-gradient text-primary-foreground hover:shadow-glow transition-all duration-300"
-              onClick={() => scrollToSection('projects')}
-            >
-              View Projects
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg"
-              onClick={() => scrollToSection('contact')}
-            >
-              Contact Me
-            </Button>
-          </div>
+          <ScrollReveal direction="up" delay={1200}>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+              <Button 
+                size="lg" 
+                className="hero-gradient text-primary-foreground hover:shadow-glow transition-all duration-300 group"
+                onClick={() => scrollToSection('projects')}
+              >
+                <span className="relative">
+                  View Projects
+                  <div className="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                </span>
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="relative overflow-hidden group"
+                onClick={() => scrollToSection('contact')}
+              >
+                <span className="relative z-10">Contact Me</span>
+                <div className="absolute inset-0 bg-primary/10 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+              </Button>
+            </div>
+          </ScrollReveal>
           
-          <div className="flex justify-center gap-6 animate-fade-in-up [animation-delay:1.5s] opacity-0 [animation-fill-mode:forwards]">
-            <a 
-              href="https://github.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="p-3 rounded-full bg-card border hover:shadow-glow transition-all duration-300 hover:scale-110"
-            >
-              <Github className="w-6 h-6" />
-            </a>
-            <a 
-              href="https://linkedin.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="p-3 rounded-full bg-card border hover:shadow-glow transition-all duration-300 hover:scale-110"
-            >
-              <Linkedin className="w-6 h-6" />
-            </a>
-            <a 
-              href="mailto:your.email@example.com"
-              className="p-3 rounded-full bg-card border hover:shadow-glow transition-all duration-300 hover:scale-110"
-            >
-              <Mail className="w-6 h-6" />
-            </a>
-          </div>
+          <ScrollReveal direction="up" delay={1500}>
+            <div className="flex justify-center gap-6">
+              <a 
+                href="https://github.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-3 rounded-full bg-card border hover:shadow-glow transition-all duration-300 hover:scale-110 group"
+              >
+                <Github className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" />
+              </a>
+              <a 
+                href="https://linkedin.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-3 rounded-full bg-card border hover:shadow-glow transition-all duration-300 hover:scale-110 group"
+              >
+                <Linkedin className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" />
+              </a>
+              <a 
+                href="mailto:your.email@example.com"
+                className="p-3 rounded-full bg-card border hover:shadow-glow transition-all duration-300 hover:scale-110 group"
+              >
+                <Mail className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" />
+              </a>
+            </div>
+          </ScrollReveal>
         </div>
       </div>
       
-      <button 
-        onClick={() => scrollToSection('about')}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
-      >
-        <ArrowDown className="w-6 h-6 text-muted-foreground" />
-      </button>
+      <ScrollReveal direction="up" delay={2000}>
+        <button 
+          onClick={() => scrollToSection('about')}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hover:scale-110 transition-transform duration-300"
+        >
+          <ArrowDown className="w-6 h-6 text-muted-foreground hover:text-primary transition-colors duration-300" />
+        </button>
+      </ScrollReveal>
     </section>
   );
 };

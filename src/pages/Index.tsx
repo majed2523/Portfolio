@@ -6,6 +6,8 @@ import Projects from '@/components/Projects';
 import Experience from '@/components/Experience';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import AnimatedBackground from '@/components/AnimatedBackground';
+import PageLoader from '@/components/PageLoader';
 
 const Index = () => {
   useEffect(() => {
@@ -31,17 +33,20 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      <main>
-        <Hero />
-        <About />
-        <Projects />
-        <Experience />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <PageLoader>
+      <div className="min-h-screen bg-background relative">
+        <AnimatedBackground />
+        <Header />
+        <main>
+          <Hero />
+          <About />
+          <Projects />
+          <Experience />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </PageLoader>
   );
 };
 
