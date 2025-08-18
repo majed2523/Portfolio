@@ -7,19 +7,14 @@ const Footer = () => {
   const socialLinks = [
     {
       icon: Github,
-      href: "https://github.com",
-      label: "GitHub"
+      href: 'https://github.com/majed2523',
+      label: 'GitHub',
     },
     {
       icon: Linkedin,
-      href: "https://linkedin.com",
-      label: "LinkedIn"
+      href: 'https://www.linkedin.com/in/abedelmadjed-meneceur-8014a4344/',
+      label: 'LinkedIn',
     },
-    {
-      icon: Mail,
-      href: "mailto:your.email@example.com",
-      label: "Email"
-    }
   ];
 
   return (
@@ -27,11 +22,7 @@ const Footer = () => {
       <div className="container-custom py-12">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <h3 className="text-2xl font-bold text-gradient mb-4">Emergent</h3>
-            <p className="text-muted-foreground leading-relaxed">
-              Computer Science Student passionate about building innovative solutions 
-              that bridge technology and user experience.
-            </p>
+            <h3 className="text-2xl font-bold text-gradient mb-4">Portfolio</h3>
           </div>
 
           <div>
@@ -71,10 +62,8 @@ const Footer = () => {
         <div className="pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-muted-foreground text-sm">
-              © {currentYear} Emergent. All rights reserved.
             </p>
             <p className="text-muted-foreground text-sm flex items-center gap-1">
-              Built with <Heart className="w-4 h-4 text-red-500" /> using React & TypeScript
             </p>
           </div>
         </div>

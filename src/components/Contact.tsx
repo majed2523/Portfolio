@@ -43,28 +43,27 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: Mail,
-      label: "Email",
-      value: "your.email@example.com",
-      href: "mailto:your.email@example.com"
+      label: 'Email',
+      value: 'majedmajed5stars@gmail.com',
     },
     {
       icon: Github,
-      label: "GitHub",
-      value: "github.com/yourusername",
-      href: "https://github.com/yourusername"
+      label: 'GitHub',
+      value: 'github.com',
+      href: 'https://github.com/majed2523',
     },
     {
       icon: Linkedin,
-      label: "LinkedIn",
-      value: "linkedin.com/in/yourprofile",
-      href: "https://linkedin.com/in/yourprofile"
+      label: 'LinkedIn',
+      value: 'https://www.linkedin.com',
+      href: 'https://www.linkedin.com/in/abedelmadjed-meneceur-8014a4344/',
     },
     {
       icon: MapPin,
-      label: "Location",
-      value: "Algeria",
-      href: null
-    }
+      label: 'Location',
+      value: 'Houston, TX',
+      href: null,
+    },
   ];
 
   return (
