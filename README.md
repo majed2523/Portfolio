@@ -1,4 +1,4 @@
-# Emergent Portfolio
+# Portfolio
 
 A modern, responsive portfolio website showcasing my skills and projects in Full-Stack Development, DevOps, and AI integration.
 
