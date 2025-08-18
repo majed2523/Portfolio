@@ -64,7 +64,7 @@ The portfolio uses a comprehensive design system with:
 
 - HSL color variables for easy theming
 - Responsive breakpoints
-- Custom animations and transitions
+- Custom animations and transitions (React Bits)
 - Modular component architecture
 
 ## Deployment
