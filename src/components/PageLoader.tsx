@@ -48,7 +48,6 @@ const PageLoader = ({ children }: PageLoaderProps) => {
         <div className="relative z-10 text-center">
           <div className="mb-8">
             <h1 className="text-4xl font-bold text-gradient mb-4 animate-pulse">
-              Emergent
             </h1>
             <div className="flex items-center justify-center space-x-2">
               {Array.from({ length: 3 }).map((_, i) => (
